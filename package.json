@@ -9,6 +9,6 @@
   "author": "Nimra Awan",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.11.0"
+    "cypress": "^13.13.2"
   }
 }
