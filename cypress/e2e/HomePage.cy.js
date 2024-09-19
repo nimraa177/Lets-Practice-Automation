@@ -8,7 +8,10 @@ describe("Handling Dropdowns", () => {
         debugger
         cy.get("body > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > aside:nth-child(1) > nav:nth-child(1) > div:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > span:nth-child(2)").click();
         cy.get("button[class='oxd-button oxd-button--medium oxd-button--secondary']").click();
-        cy.get("div[class='oxd-grid-2 orangehrm-full-width-grid'] div:nth-child(1) div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(1)").click().select("Admin");
+        cy.get("div[class='oxd-grid-2 orangehrm-full-width-grid'] div:nth-child(1) div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(2) i:nth-child(1)").click();
+        cy.get('.oxd-select-dropdown') // Replace this with the correct dropdown container selector
+        .contains('Admin')           // Replace with the option you want to select
+        .click();
         cy.request('GET',"https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?nameOrId=a").then((response) => {
             console.log(response.data,"response.data")  
             expect(response.status).to.eq(200); //verifying the API response with it assertion
@@ -17,12 +20,12 @@ describe("Handling Dropdowns", () => {
              debugger
              cy.get('.oxd-autocomplete-dropdown').contains(firstUser).click();
         });
+        cy.get(".oxd-icon.bi-caret-up-fill.oxd-select-text--arrow").click()
             
 
 
 
 
-    
 
 
         
