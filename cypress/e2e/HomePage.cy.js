@@ -15,28 +15,18 @@ describe("Handling Dropdowns", () => {
         cy.request('GET',"https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?nameOrId=a").then((response) => {
             console.log(response.data,"response.data")  
             expect(response.status).to.eq(200); //verifying the API response with it assertion
-             const firstUser = `${response?.body?.data[0]?.firstName} ${response?.body?.data[0]?.middleName} ${response?.body?.data[0]?.lastName}`;
+             const firstUser = `${response?.body?.data[0]?.firstName} ${response?.body?.data[0]?.lastName}`;
              cy.get("input[placeholder='Type for hints...']").type(firstUser);
              debugger
              cy.get('.oxd-autocomplete-dropdown').contains(firstUser).click();
         });
-        cy.get(".oxd-icon.bi-caret-up-fill.oxd-select-text--arrow").click()
-            
-
-
-
-
-
-
-        
-        
-
-
-
-
-        
-
-    
+        cy.get("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > div > div > div.oxd-select-text--after > i").click()
+        cy.get('.oxd-select-dropdown')
+        .contains('Enabled').click();
+        cy.get("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(2) > input").type("Admin_Nimraa")
+        cy.get("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div.oxd-grid-item.oxd-grid-item--gutters.user-password-cell > div > div:nth-child(2) > input").type("Admin@123!@#");
+        cy.get("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div:nth-child(2) > div > div:nth-child(2) > input").type("Admin@123!@#");
+        cy.get("button[type='submit']").click();
     });
 });  
 
