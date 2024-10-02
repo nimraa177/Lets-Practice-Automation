@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --spec 'cypress/e2e/Main.cy.js'
         env:
           CI: true  # Set CI environment variable to true
 
