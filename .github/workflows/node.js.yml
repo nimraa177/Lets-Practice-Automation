@@ -1,0 +1,37 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify the Node.js version you want
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npx cypress run --spec 'cypress/e2e/Main.cy.js'
+        env:
+          CI: true  # Set CI environment variable to true
+
+      - name: Upload test results
+        if: always()  # Run this step regardless of the previous result
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-results
+          path: cypress/results  
