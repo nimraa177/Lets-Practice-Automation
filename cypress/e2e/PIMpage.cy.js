@@ -9,4 +9,8 @@ describe("Employee Information", () => {
         cy.get("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > div > div.orangehrm-edit-employee-content > div.orangehrm-horizontal-padding.orangehrm-vertical-padding > form > div.oxd-form-actions > button").click();
    
     });
+    it('Editing Employee Information', () => {
+        cy.get("")
+        
+    });
 });

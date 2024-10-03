@@ -1,7 +1,7 @@
 describe("User Login Functionality", () => {
   it("should navigate to the login page", () => {
     cy.visit(
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+      "https://opensource-demo.orangehrmlive.com/auth/login"
     ); //Launching Application
     cy.title().should("eq", "OrangeHRM"); //verifying page title using should assertion
   });
