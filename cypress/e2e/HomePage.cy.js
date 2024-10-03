@@ -12,7 +12,7 @@ describe("Handling Dropdowns", () => {
         cy.get('.oxd-select-dropdown') // Replace this with the correct dropdown container selector
         .contains('Admin')           // Replace with the option you want to select
         .click();
-        cy.request('GET',"https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?nameOrId=a").then((response) => {
+        cy.request('GET',"https://opensource-demo.orangehrmlive.com/api/v2/pim/employees?nameOrId=a").then((response) => {
             console.log(response.data,"response.data")  
             expect(response.status).to.eq(200); //verifying the API response with it assertion
              const firstUser = `${response?.body?.data[0]?.firstName} ${response?.body?.data[0]?.lastName}`;

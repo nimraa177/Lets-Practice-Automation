@@ -8,21 +8,21 @@ describe("User Login Functionality", () => {
   it("should display an error for incorrect login(Pass)", () => {
 
     // cy.get("input[placeholder='Username']", { timeout: 10000 }).should('be.visible');
-    cy.get('input[placeholder="Username"]').type("Admin"); //added Email field CSS selector
-    cy.get("input[placeholder='Password']").type("admin1234"); //added password field CSS selector
+    cy.get('#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input').type("Admin"); //added Email field CSS selector
+    cy.get("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(3) > div > div:nth-child(2) > input").type("admin1234"); //added password field CSS selector
     cy.get("button[type='submit']").click(); //click on Login button
     cy.get(".oxd-alert-content.oxd-alert-content--error").should('contain', "Invalid credentials"); //verifying Invalid error message
   });
 
   it("should display an error for incorrect login(Email)", () => {
-    cy.get("input[placeholder='Username']").type("Adminn"); //added Email field CSS selector
-    cy.get("input[placeholder='Password']").type("admin123"); //added password field CSS selector
+    cy.get("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input").type("Adminn"); //added Email field CSS selector
+    cy.get("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(3) > div > div:nth-child(2) > input").type("admin123"); //added password field CSS selector
     cy.get("button[type='submit']").click(); //click on Login button
     cy.get(".oxd-text.oxd-text--p.oxd-alert-content-text").should('contain', "Invalid credentials"); //verifying Invalid error message
   });
   it("validCredentails", () => {
-    cy.get("input[placeholder='Username']").type("Admin"); //added Email field CSS selector
-    cy.get("input[placeholder='Password']").type("admin123"); //added password field CSS selector
+    cy.get("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input").type("Admin"); //added Email field CSS selector
+    cy.get("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(3) > div > div:nth-child(2) > input").type("admin123"); //added password field CSS selector
     cy.get("button[type='submit']").click(); //click on Login button
   })
 });
